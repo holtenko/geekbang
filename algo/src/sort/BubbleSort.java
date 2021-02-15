@@ -8,14 +8,14 @@ import java.util.Arrays;
 public class BubbleSort {
     public static void main(String[] args) {
         int[] nums = {4, 7, 6, 8, 5, 1, 3, 2};
-        int[] sortedNums = bubbleSort(nums);
-        System.out.println(Arrays.toString(sortedNums));
+        bubbleSort(nums);
+        System.out.println(Arrays.toString(nums));
     }
 
-    public static int[] bubbleSort(int[] nums) {
+    public static void bubbleSort(int[] nums) {
         int length = nums.length;
         if (length <= 1) {
-            return nums;
+            return;
         }
         for (int i = length - 1; i > 0; i--) {
             for (int j = 0; j < i; j++) {
@@ -26,6 +26,5 @@ public class BubbleSort {
                 }
             }
         }
-        return nums;
     }
 }

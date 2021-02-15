@@ -8,14 +8,14 @@ import java.util.Arrays;
 public class InsertSort {
     public static void main(String[] args) {
         int[] nums = {4, 7, 6, 8, 5, 1, 3, 2};
-        int[] sortedNums = insertSort(nums);
-        System.out.println(Arrays.toString(sortedNums));
+        insertSort(nums);
+        System.out.println(Arrays.toString(nums));
     }
 
-    public static int[] insertSort(int[] nums) {
+    public static void insertSort(int[] nums) {
         int length = nums.length;
         if (length <= 1) {
-            return nums;
+            return;
         }
         for (int i = 1; i < length; i++) {
             for (int j = 0; j < i; j++) {
@@ -28,6 +28,5 @@ public class InsertSort {
                 }
             }
         }
-        return nums;
     }
 }
