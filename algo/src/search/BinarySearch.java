@@ -1,31 +1,33 @@
 package search;
 
-import java.util.Arrays;
-
 /**
  * @author holten
  * @date 2021/2/16
  */
 public class BinarySearch {
     public static void main(String[] args) {
-        int[] nums = {4, 7, 6, 8, 5, 1, 3, 2};
-        bubbleSort(nums);
-        System.out.println(Arrays.toString(nums));
+        int[] nums = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+        int targetIndex = binarySearch(nums, 0);
+        System.out.println(targetIndex);
     }
 
-    public static void bubbleSort(int[] nums) {
+    public static int binarySearch(int[] nums, int target) {
         int length = nums.length;
-        if (length <= 1) {
-            return;
+        if (length < 1) {
+            return -1;
         }
-        for (int i = length - 1; i > 0; i--) {
-            for (int j = 0; j < i; j++) {
-                if (nums[j] > nums[j + 1]) {
-                    int temp = nums[j];
-                    nums[j] = nums[j + 1];
-                    nums[j + 1] = temp;
-                }
+        int low = 0;
+        int high = length - 1;
+        for (int i = 0; i < length; i++) {
+            int mid = low + ((high - low) >> 1);
+            if (target == nums[mid]) {
+                return mid;
+            } else if (target > nums[mid]) {
+                low = mid;
+            } else {
+                high = mid;
             }
         }
+        return -1;
     }
 }
