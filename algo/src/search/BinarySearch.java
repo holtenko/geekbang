@@ -1,4 +1,4 @@
-package sort;
+package search;
 
 import java.util.Arrays;
 
@@ -6,7 +6,7 @@ import java.util.Arrays;
  * @author holten
  * @date 2021/2/16
  */
-public class BubbleSort {
+public class BinarySearch {
     public static void main(String[] args) {
         int[] nums = {4, 7, 6, 8, 5, 1, 3, 2};
         bubbleSort(nums);
