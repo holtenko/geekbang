@@ -4,14 +4,14 @@ package search;
  * @author holten
  * @date 2021/2/16
  */
-public class BinarySearch {
+public class BinarySearchFirst {
     public static void main(String[] args) {
-        int[] nums = {1, 2, 3, 4, 5, 6, 7, 8, 9};
-        int targetIndex = binarySearch(nums, 5);
+        int[] nums = {1, 2, 3, 7, 7, 7, 7, 8, 9};
+        int targetIndex = binarySearchFirst(nums, 7);
         System.out.println(targetIndex);
     }
 
-    public static int binarySearch(int[] nums, int target) {
+    public static int binarySearchFirst(int[] nums, int target) {
         int length = nums.length;
         if (length < 1) {
             return -1;
@@ -21,7 +21,11 @@ public class BinarySearch {
         while (low <= high) {
             int mid = low + ((high - low) >> 1);
             if (target == nums[mid]) {
-                return mid;
+                if (mid == 0 || nums[mid - 1] != target) {
+                    return mid;
+                } else {
+                    high = mid - 1;
+                }
             } else if (target > nums[mid]) {
                 low = mid + 1;
             } else {
